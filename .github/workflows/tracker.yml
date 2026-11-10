@@ -1,0 +1,19 @@
+name: GitHub Projects Automation
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  move-issue-to-done:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Move Issue to Done
+        run: |
+          echo "This step requires a Project ID and Column ID from your GitHub account."
+          echo "For now, we are just simulating the API call."
